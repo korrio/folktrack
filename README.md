@@ -1,9 +1,11 @@
 ## folktrack.co
 - Agricultural data on chain.
-- Please login with Sepolia network.
 
 ## Workflow
 ![https://folktrackco.web.app/](./public/assets/workflow.png)
+
+## Demo (Sepolia network)
+- https://folktrackco.web.app/
 
 ## smartcontracts deployed on bkc testnet
 - SupplyChainStorage: 0x6623033C89aab17029447524ad2f8D6A3F154063

@@ -42,7 +42,8 @@
 	    } else {
 	        // set the provider you want from Web3.providers
 	        //web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-	        web3 = new Web3("https://sepolia.infura.io/v3/a1fb8d533f364aac803c06975ce3c7f8");
+	        // web3 = new Web3("https://sepolia.infura.io/v3/a1fb8d533f364aac803c06975ce3c7f8");
+	    	web3 = new Web3("https://rpc-testnet.bitkubchain.io");
 	    }
 
 	    getCurrentAccountAddress((address) => {
