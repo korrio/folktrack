@@ -1,14 +1,14 @@
 ## folktrack.co
 - Agricultural data on chain.
 
-## slide
+## Slide
 - https://docs.google.com/presentation/d/1XqTnAfw7QW4wJgR81LCpYt3TmF19zxnkTJecBqEuEwQ/edit#slide=id.g8558872ee5_3_18
-
-## Workflow
-![https://folktrackco.web.app/](./public/assets/workflow.png)
 
 ## Demo (BKC testnet)
 - https://folktrackco.web.app/
+
+## Workflow
+![https://folktrackco.web.app/](./public/assets/workflow.png)
 
 ## smartcontracts deployed on bkc testnet
 - SupplyChainStorage: 0x6623033C89aab17029447524ad2f8D6A3F154063
