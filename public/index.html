@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>sourcetrack.co</title>
+    <title>folktrack.co</title>
     <!-- Bootstrap Core CSS -->
     <link href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet"> -->
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group  text-center">
                         <div class="col-xs-12">
-                           <h4><b>Welcome to folktag.co</b></h4>
+                           <h4><b>Welcome to folktrack.co</b></h4>
                             <h6>Agricultural Supplychain Traceability</h6>
                             <img width="240px" src="https://www.techhub.in.th/wp-content/uploads/2022/07/09.bitkub-chain-logo.png" />
 
@@ -78,5 +78,127 @@
     <script src="js/custom.min.js"></script>
     <!--Style Switcher -->
 </body>
+
+<div id="output"></div>
+    <script type="module">
+        import { initializeSDK, Network } from 'https://cdn.jsdelivr.net/npm/@bitkub-chain/sdk.js@0.1.6/+esm';
+
+        // Helper function to update output
+        function updateOutput(message) {
+            const output = document.getElementById('output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.innerHTML = `[${timestamp}] ${message}`;
+        }
+
+        const clientID = '67393f2a5f02f9001be0e550';
+const projectID = 'sdk-e1290a20-88b7-4128-97d3-57b7078c1090';
+const network = Network.BKC_TESTNET; // or Network.BKC_MAINNET will comming soon
+const initOpts = {
+  /**
+   * @default '/oauth/callback'
+   */
+  loginRedirectPath: 'https://folktrackco.web.app/oauth/callback',
+};
+
+        // Initialize SDK
+        let sdk;
+        try {
+            sdk = initializeSDK(clientID, projectID, network, initOpts);
+            await sdk.loginWithBitkubNext();
+
+            // sdk = await initializeSDK({
+            //     network: Network.TESTNET // or Network.MAINNET for production
+            // });
+        } catch (error) {
+            updateOutput('Error initializing SDK: ' + error.message);
+        }
+
+        // Connect wallet function
+        async function connectWallet() {
+            try {
+                if (typeof window.ethereum === 'undefined') {
+                    throw new Error('MetaMask is not installed!');
+                }
+
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_requestAccounts' 
+                });
+                
+                const walletInfo = document.getElementById('walletInfo');
+                walletInfo.innerHTML = `
+                    <p>Connected Account: ${accounts[0]}</p>
+                `;
+                
+                updateOutput('Wallet connected successfully!');
+            } catch (error) {
+                updateOutput('Error connecting wallet: ' + error.message);
+            }
+        }
+
+        // Get balance function
+        async function getBalance() {
+            try {
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_accounts' 
+                });
+                
+                if (accounts.length === 0) {
+                    throw new Error('Please connect your wallet first!');
+                }
+
+                const balance = await window.ethereum.request({ 
+                    method: 'eth_getBalance',
+                    params: [accounts[0], 'latest']
+                });
+
+                const balanceInEth = ethers.utils.formatEther(balance);
+                
+                const walletInfo = document.getElementById('walletInfo');
+                walletInfo.innerHTML += `
+                    <p>Balance: ${balanceInEth} KUB</p>
+                `;
+                
+                updateOutput('Balance fetched successfully!');
+            } catch (error) {
+                updateOutput('Error getting balance: ' + error.message);
+            }
+        }
+
+        // Check network function
+        async function checkNetwork() {
+            try {
+                const networkId = await window.ethereum.request({ 
+                    method: 'net_version' 
+                });
+                
+                const networkInfo = document.getElementById('networkInfo');
+                let networkName = 'Unknown';
+                
+                // Bitkub Chain network IDs
+                switch (networkId) {
+                    case '96':
+                        networkName = 'Bitkub Chain Mainnet';
+                        break;
+                    case '25925':
+                        networkName = 'Bitkub Chain Testnet';
+                        break;
+                }
+                
+                networkInfo.innerHTML = `
+                    <p>Network ID: ${networkId}</p>
+                    <p>Network Name: ${networkName}</p>
+                `;
+                
+                updateOutput('Network information fetched successfully!');
+            } catch (error) {
+                updateOutput('Error checking network: ' + error.message);
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+        document.getElementById('getBalanceBtn').addEventListener('click', getBalance);
+        document.getElementById('checkNetworkBtn').addEventListener('click', checkNetwork);
+    </script>
 
 </html>

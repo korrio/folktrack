@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitkub Chain SDK Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bitkub Chain SDK Demo</h1>
+    <div class="container">
+        <h2>Wallet Connection</h2>
+        <button id="connectWalletBtn">Connect Wallet</button>
+        <button id="getBalanceBtn">Get Balance</button>
+        <div id="walletInfo"></div>
+    </div>
+    <div class="container">
+        <h2>Network Information</h2>
+        <button id="checkNetworkBtn">Check Network</button>
+        <div id="networkInfo"></div>
+    </div>
+    <div id="output"></div>
+    <script type="module">
+        import { initializeSDK, Network } from 'https://cdn.jsdelivr.net/npm/@bitkub-chain/sdk.js@0.1.6/+esm';
+
+        // Helper function to update output
+        function updateOutput(message) {
+            const output = document.getElementById('output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.innerHTML = `[${timestamp}] ${message}`;
+        }
+
+        const clientID = '67393f2a5f02f9001be0e550';
+const projectID = 'sdk-e1290a20-88b7-4128-97d3-57b7078c1090';
+const network = Network.BKC_TESTNET; // or Network.BKC_MAINNET will comming soon
+const initOpts = {
+  /**
+   * @default '/oauth/callback'
+   */
+  loginRedirectPath: 'https://folktrackco.web.app/oauth/callback',
+};
+
+        // Initialize SDK
+        let sdk;
+        try {
+        	sdk = initializeSDK(clientID, projectID, network, initOpts);
+        	await sdk.loginWithBitkubNext();
+
+            // sdk = await initializeSDK({
+            //     network: Network.TESTNET // or Network.MAINNET for production
+            // });
+        } catch (error) {
+            updateOutput('Error initializing SDK: ' + error.message);
+        }
+
+        // Connect wallet function
+        async function connectWallet() {
+            try {
+                if (typeof window.ethereum === 'undefined') {
+                    throw new Error('MetaMask is not installed!');
+                }
+
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_requestAccounts' 
+                });
+                
+                const walletInfo = document.getElementById('walletInfo');
+                walletInfo.innerHTML = `
+                    <p>Connected Account: ${accounts[0]}</p>
+                `;
+                
+                updateOutput('Wallet connected successfully!');
+            } catch (error) {
+                updateOutput('Error connecting wallet: ' + error.message);
+            }
+        }
+
+        // Get balance function
+        async function getBalance() {
+            try {
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_accounts' 
+                });
+                
+                if (accounts.length === 0) {
+                    throw new Error('Please connect your wallet first!');
+                }
+
+                const balance = await window.ethereum.request({ 
+                    method: 'eth_getBalance',
+                    params: [accounts[0], 'latest']
+                });
+
+                const balanceInEth = ethers.utils.formatEther(balance);
+                
+                const walletInfo = document.getElementById('walletInfo');
+                walletInfo.innerHTML += `
+                    <p>Balance: ${balanceInEth} KUB</p>
+                `;
+                
+                updateOutput('Balance fetched successfully!');
+            } catch (error) {
+                updateOutput('Error getting balance: ' + error.message);
+            }
+        }
+
+        // Check network function
+        async function checkNetwork() {
+            try {
+                const networkId = await window.ethereum.request({ 
+                    method: 'net_version' 
+                });
+                
+                const networkInfo = document.getElementById('networkInfo');
+                let networkName = 'Unknown';
+                
+                // Bitkub Chain network IDs
+                switch (networkId) {
+                    case '96':
+                        networkName = 'Bitkub Chain Mainnet';
+                        break;
+                    case '25925':
+                        networkName = 'Bitkub Chain Testnet';
+                        break;
+                }
+                
+                networkInfo.innerHTML = `
+                    <p>Network ID: ${networkId}</p>
+                    <p>Network Name: ${networkName}</p>
+                `;
+                
+                updateOutput('Network information fetched successfully!');
+            } catch (error) {
+                updateOutput('Error checking network: ' + error.message);
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+        document.getElementById('getBalanceBtn').addEventListener('click', getBalance);
+        document.getElementById('checkNetworkBtn').addEventListener('click', checkNetwork);
+    </script>
+</body>
+
+</html>
