@@ -2,6 +2,9 @@
 - Agricultural data on chain.
 - Please login with Sepolia network.
 
+## Workflow
+![https://folktrackco.web.app/](./public/assets/workflow.png)
+
 ## smartcontracts deployed on bkc testnet
 - SupplyChainStorage: 0x6623033C89aab17029447524ad2f8D6A3F154063
 - CoffeeSupplyChain: 0x9EEA4d2BEfda5cCbff5C39d85516Ffb77228dBd6
