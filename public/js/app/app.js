@@ -18,19 +18,19 @@
 	var globAdminAddress = "0x22f45E683b2574eFe3b2d82642E4176Fa1967c42";
 
 
-	var isDemo = Cookies.get('demo');
-	if (isDemo == "true") {
-	    var globIcoAddress = {
-	        /*'old-CoffeeMain': "0xfA171Cda184d815D20a318fCe9920AafdC04934e",
-	        'old-CoffeeUser': "0x26d723acFe39f93A9702592dD9371851f81cF59F",*/
+	// var isDemo = Cookies.get('demo');
+	// if (isDemo == "true") {
+	//     var globIcoAddress = {
+	//         /*'old-CoffeeMain': "0xfA171Cda184d815D20a318fCe9920AafdC04934e",
+	//         'old-CoffeeUser': "0x26d723acFe39f93A9702592dD9371851f81cF59F",*/
 
-	    'CoffeeMain': "0x9EEA4d2BEfda5cCbff5C39d85516Ffb77228dBd6",
-	    'CoffeeUser': "0x4d8B941dE7852b6f2db92a2372f238c2E78A579f",
-	    'Storage': "0x6623033C89aab17029447524ad2f8D6A3F154063"
-	    };
+	//     'CoffeeMain': "0x9EEA4d2BEfda5cCbff5C39d85516Ffb77228dBd6",
+	//     'CoffeeUser': "0x4d8B941dE7852b6f2db92a2372f238c2E78A579f",
+	//     'Storage': "0x6623033C89aab17029447524ad2f8D6A3F154063"
+	//     };
 
-	    var globAdminAddress = "0x22f45E683b2574eFe3b2d82642E4176Fa1967c42";
-	}
+	//     var globAdminAddress = "0x22f45E683b2574eFe3b2d82642E4176Fa1967c42";
+	// }
 
 	var globMainContract = false;
 	var globUserContract = false;
