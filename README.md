@@ -1,5 +1,6 @@
 ## folktrack.co
 - Agricultural data on chain.
+- Please login with Sepolia network.
 
 export const sdk = initializeSDK(
     "67393f2a5f02f9001be0e550", // Client ID
