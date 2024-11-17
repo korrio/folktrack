@@ -2,9 +2,17 @@
 	    /*'old-CoffeeMain': "0xfA171Cda184d815D20a318fCe9920AafdC04934e",
 	    'old-CoffeeUser': "0x26d723acFe39f93A9702592dD9371851f81cF59F",*/
 
-	    'CoffeeMain': "0x43Aca792D0B76196115039e5850D1bA2ce4c8629",
-	    'CoffeeUser': "0xDD11f31aa1D8f2F94D8781d62A259a5077978098",
-	    'Storage': "0xe5d2D20B768f3179E2F28Abf28eB84dF5b6e04f3"
+		// sepolia
+	    // 'CoffeeMain': "0x43Aca792D0B76196115039e5850D1bA2ce4c8629",
+	    // 'CoffeeUser': "0xDD11f31aa1D8f2F94D8781d62A259a5077978098",
+	    // 'Storage': "0xe5d2D20B768f3179E2F28Abf28eB84dF5b6e04f3"
+
+		// bkc testnet
+
+	    'CoffeeMain': "0x9EEA4d2BEfda5cCbff5C39d85516Ffb77228dBd6",
+	    'CoffeeUser': "0x4d8B941dE7852b6f2db92a2372f238c2E78A579f",
+	    'Storage': "0x6623033C89aab17029447524ad2f8D6A3F154063"
+
 	};
 
 	var globAdminAddress = "0x22f45E683b2574eFe3b2d82642E4176Fa1967c42";
@@ -16,9 +24,9 @@
 	        /*'old-CoffeeMain': "0xfA171Cda184d815D20a318fCe9920AafdC04934e",
 	        'old-CoffeeUser': "0x26d723acFe39f93A9702592dD9371851f81cF59F",*/
 
-	     	    'CoffeeMain': "0x43Aca792D0B76196115039e5850D1bA2ce4c8629",
-	    'CoffeeUser': "0xDD11f31aa1D8f2F94D8781d62A259a5077978098",
-	    'Storage': "0xe5d2D20B768f3179E2F28Abf28eB84dF5b6e04f3"
+	    'CoffeeMain': "0x9EEA4d2BEfda5cCbff5C39d85516Ffb77228dBd6",
+	    'CoffeeUser': "0x4d8B941dE7852b6f2db92a2372f238c2E78A579f",
+	    'Storage': "0x6623033C89aab17029447524ad2f8D6A3F154063"
 	    };
 
 	    var globAdminAddress = "0x22f45E683b2574eFe3b2d82642E4176Fa1967c42";
@@ -330,7 +338,7 @@
 	}
 
 	function handleTransactionResponse(txHash, finalMessage) {
-	    var txLink = "https://sepolia.etherscan.io/tx/" + txHash;
+	    var txLink = "https://testnet.bkcscan.com/tx/" + txHash;
 	    var txLinkHref = "<a target='_blank' href='" + txLink + "'> Click here for Transaction Status </a>";
 
 	    sweetAlert("Success", "Please Check Transaction Status here :  " + txLinkHref, "success");

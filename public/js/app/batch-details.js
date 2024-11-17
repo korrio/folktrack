@@ -80,7 +80,7 @@ function populateSection(parentSection, built, activityName, batchNo) {
                     userAddress = userAddress.substring(0, 15) + '...';
                 }
 
-                var refLink = 'https://sepolia.etherscan.io/tx/' + resultData.transactionHash;
+                var refLink = 'https://testnet.bkcscan.com/tx/' + resultData.transactionHash;
                 var html = `<div class="text-info"><i class='fa fa-user'> </i>
                         ` + resultData.name + ` (` + userAddress + `) <br/>
                         ` + phoneNoSec + `
@@ -93,7 +93,7 @@ function populateSection(parentSection, built, activityName, batchNo) {
             }
 
             if (resultData.transactionHash) {
-                var url = 'https://sepolia.etherscan.io/tx/' + resultData.transactionHash;
+                var url = 'https://testnet.bkcscan.com/tx/' + resultData.transactionHash;
                 var qrCode = 'https://api.qrserver.com/v1/create-qr-code/?size=80x80&data='+url;
                 // var qrCode = 'https://chart.googleapis.com/chart?cht=qr&chld=H|1&chs=400x400&chl=' + url;
                 var qrCodeSec = `<a href="` + url + `" title="` + resultData.transactionHash + `" class="qr-code-magnify" data-effect="mfp-zoom-in">

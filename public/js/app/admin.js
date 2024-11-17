@@ -119,7 +119,7 @@ function buildCultivationTable(finalEvents)
         var batchNo = elem.batchNo;
         var transactionHash = elem.transactionHash;
         var tr = "";
-        var url = 'https://sepolia.etherscan.io/tx/'+transactionHash;
+        var url = 'https://testnet.bkcscan.com/tx/'+transactionHash;
         var qrCode = 'https://api.qrserver.com/v1/create-qr-code/?size=80x80&data='+url;
 			
         var commBatchTd = `<td>`+batchNo+` <a href="`+url+`" class="text-danger" target="_blank"><i class="fa fa-external-link"></i></a></td>`;
