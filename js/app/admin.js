@@ -127,7 +127,7 @@ function buildCultivationTable(finalEvents)
 				        	<img src="`+qrCode+`" class="img-responsive" style="width:30px; height:30px;">
 				        </a>
 				    </td>`;
-		var commActionTd = `<td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>`;		    
+		var commActionTd = `<td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>`;		    
 		
 		if (elem.status == "FARM_INSPECTION") {
             tr = `<tr>

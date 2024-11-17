@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/imperialsofetch.png">
     <title></title>
     <!-- Bootstrap Core CSS -->
     <link href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

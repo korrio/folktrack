@@ -1,6 +1,6 @@
-var batchNo;
 window.addEventListener('load', function() {
-    batchNo = $("#batchNo").val();
+    const batchNo = getUrlParameter('batchNo');
+    // batchNo = $("#batchNo").val();
 
     if (batchNo != "" || batchNo != null || batchNo != undefined) {
 
