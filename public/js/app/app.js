@@ -51,11 +51,6 @@
 	        var tmpStack = currentPath.split("/");
 	        var currentPanel = tmpStack.pop();
 
-	        if (currentPanel == "admin.php") {
-	            // if(address != globAdminAddress){
-	            // 	window.location = "index.php";
-	            // }
-	        }
 	    });
 
 	    initContract();

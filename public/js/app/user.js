@@ -453,7 +453,7 @@ function buildCultivationTable(finalEvents)
               <td><span class="label label-danger font-weight-100">Not Available</span> </td>
               <td><span class="label label-danger font-weight-100">Not Available</span> </td>
               <td><span class="label label-danger font-weight-100">Not Available</span> </td>
-              <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+              <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
           </tr>`;
 
         } else if (elem.status == "HARVESTER") {
@@ -479,7 +479,7 @@ function buildCultivationTable(finalEvents)
                 <td><span class="label label-danger font-weight-100">Not Available</span> </td>
                 <td><span class="label label-danger font-weight-100">Not Available</span> </td>
                 <td><span class="label label-danger font-weight-100">Not Available</span> </td>
-                <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+                <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
             </tr>`;
 
         } else if (elem.status == "EXPORTER") {
@@ -506,7 +506,7 @@ function buildCultivationTable(finalEvents)
               tr+=`  
                     <td><span class="label label-danger font-weight-100">Not Available</span> </td>
                     <td><span class="label label-danger font-weight-100">Not Available</span> </td>
-                    <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+                    <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
         } else if (elem.status == "IMPORTER") {
             tr = `<tr>
@@ -531,7 +531,7 @@ function buildCultivationTable(finalEvents)
                   } 
 
               tr+=` <td><span class="label label-danger font-weight-100">Not Available</span> </td>
-                    <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+                    <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
         } else if (elem.status == "PROCESSOR") {
             tr = `<tr>
@@ -556,7 +556,7 @@ function buildCultivationTable(finalEvents)
                      tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
                   }  
                 tr+=`    
-                    <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+                    <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
         } else if (elem.status == "DONE") {
             tr = `<tr>
@@ -568,7 +568,7 @@ function buildCultivationTable(finalEvents)
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                   `;  
                 tr+=`    
-                    <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
+                    <td><a href="view-batch.html?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
         }
             
