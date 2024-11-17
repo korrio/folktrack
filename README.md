@@ -1,10 +1,13 @@
 ## folktrack.co
 - Agricultural data on chain.
 
+## slide
+- https://docs.google.com/presentation/d/1XqTnAfw7QW4wJgR81LCpYt3TmF19zxnkTJecBqEuEwQ/edit#slide=id.g8558872ee5_3_18
+
 ## Workflow
 ![https://folktrackco.web.app/](./public/assets/workflow.png)
 
-## Demo (Sepolia network)
+## Demo (BKC testnet)
 - https://folktrackco.web.app/
 
 ## smartcontracts deployed on bkc testnet
